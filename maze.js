@@ -63,10 +63,10 @@ function move(dRow, dCol) {
 
     // Using avatarRow and dRow, compute destRow (where the player should move
     // vertically). You'll need to replace "undefined" to do so.
-    const destRow = undefined; 
+    const destRow = dRow + avatarRow; 
     // Using avatarCOl and dCol, compute destCol (where the player should move
     // vertically). You'll need to replace "undefined" to do so.
-    const destCol = undefined;
+    const destCol = dCol + avatarCol;
     const destCell = map[destRow][destCol];
 
     // Check that it is within the bounds of the map, and not a wall.
@@ -89,6 +89,7 @@ function checkForWin() {
 }
 
 document.addEventListener('keydown', (event) => {
+
     // STEP 2 -----------------------------------------------------------------/
     
     // "move" takes 2 arguments: a row offset, and a column offset.  For example
@@ -97,6 +98,25 @@ document.addEventListener('keydown', (event) => {
 
     // Write some logic to check the value of "event.key" and call "move()"
     // with the proper arguments.
-});
+    const keyName = event.key 
+    if(keyName === "ArrowDown"){
+        console.log("down")
+        move(1,0)
+    }
+    if(keyName === "ArrowUp"){
+        console.log("Up")
+        move(-1,0)
+    }
+    if(keyName === "ArrowLeft"){
+        console.log("left")
+        move(0,-1)
+    }
+    if(keyName === "ArrowRight"){
+        console.log("Right")
+        move(0, 1)
+    }
+    
+    ;
+    });
 
-youWonDiv.addEventListener("click", () => location.reload());
+youWonDiv.addEventListener("click", () => location.reload())
